@@ -24,14 +24,22 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
         />
         
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-midnight/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+        {/* Hover Overlay - Always visible icons on mobile for usability */}
+        <div className="absolute inset-0 bg-midnight/40 opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
           <button className="bg-white text-midnight p-3 rounded-none hover:bg-cyan-glow transition-colors">
             <Plus size={24} />
           </button>
           <button className="bg-white/10 backdrop-blur-md text-white p-3 border border-white/20 hover:text-magenta-glow transition-colors">
             <Heart size={24} />
           </button>
+        </div>
+        
+        {/* Mobile Action Bar - Visible only on small/medium screens */}
+        <div className="lg:hidden absolute bottom-0 left-0 w-full p-4 flex justify-between items-center bg-gradient-to-t from-midnight/80 to-transparent">
+           <div className="flex gap-2">
+            <button className="bg-white/10 backdrop-blur-md text-white p-2 border border-white/10"><Plus size={18} /></button>
+            <button className="bg-white/10 backdrop-blur-md text-white p-2 border border-white/10"><Heart size={18} /></button>
+           </div>
         </div>
 
         {/* Tag */}

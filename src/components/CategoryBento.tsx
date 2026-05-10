@@ -30,13 +30,13 @@ const categories: Category[] = [
 
 export default function CategoryBento() {
   return (
-    <section className="py-24 px-6 md:px-24 bg-midnight">
-      <div className="mb-12 flex justify-between items-end">
+    <section className="py-16 md:py-24 px-6 sm:px-12 md:px-24 bg-midnight">
+      <div className="mb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
         <div>
-          <h3 className="text-4xl font-black text-white font-display">CATEGORIES</h3>
-          <p className="text-cyan-glow text-xs tracking-widest mt-2 uppercase font-bold">Protocol Select // Mode B</p>
+          <h3 className="text-3xl sm:text-4xl font-black text-white font-display">CATEGORIES</h3>
+          <p className="text-cyan-glow text-[10px] sm:text-xs tracking-widest mt-2 uppercase font-bold">Protocol Select // Mode B</p>
         </div>
-        <button className="text-white hover:text-magenta-glow transition-colors uppercase text-sm font-bold tracking-widest">
+        <button className="text-white hover:text-magenta-glow transition-colors uppercase text-xs sm:text-sm font-bold tracking-widest border-b border-white/20 pb-1">
           View All Systems
         </button>
       </div>

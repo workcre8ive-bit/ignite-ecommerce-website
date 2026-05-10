@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-midnight border-t border-white/10 py-24 px-6 md:px-24">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="col-span-1 md:col-span-2">
+    <footer className="bg-midnight border-t border-white/10 py-16 md:py-24 px-6 sm:px-12 md:px-24">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16">
+        <div className="col-span-1 sm:col-span-2">
           <h1 className="text-4xl font-black tracking-tighter text-white font-display mb-8">
             IGNITE<span className="text-cyan-glow">.</span>
           </h1>
