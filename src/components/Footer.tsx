@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="bg-midnight border-t border-white/10 py-16 md:py-24 px-6 sm:px-12 md:px-24">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16">
         <div className="col-span-1 sm:col-span-2">
-          <h1 className="text-4xl font-black tracking-tighter text-white font-display mb-8">
-            IGNITE<span className="text-cyan-glow">.</span>
-          </h1>
+          <Link to="/">
+            <h1 className="text-4xl font-black tracking-tighter text-white font-display mb-8">
+              IGNITE<span className="text-cyan-glow">.</span>
+            </h1>
+          </Link>
           <p className="text-gray-500 max-w-sm mb-8">
             Join the collective. Recieve intel on new drops, secret archives, and exclusive urban operations.
           </p>
@@ -24,10 +28,10 @@ export default function Footer() {
         <div>
           <h5 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Navigation</h5>
           <ul className="space-y-4 text-gray-500 text-sm font-medium uppercase tracking-widest">
-            <li><a href="#" className="hover:text-cyan-glow transition-colors">Archive</a></li>
-            <li><a href="#" className="hover:text-magenta-glow transition-colors">Operations</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Logistics</a></li>
+            <li><Link to="/archive" className="hover:text-cyan-glow transition-colors">Archive</Link></li>
+            <li><Link to="/operations" className="hover:text-magenta-glow transition-colors">Operations</Link></li>
+            <li><Link to="/collections" className="hover:text-white transition-colors">Collections</Link></li>
+            <li><Link to="/account" className="hover:text-white transition-colors">Account</Link></li>
           </ul>
         </div>
 

@@ -1,14 +1,16 @@
 import { ShoppingBag, Search, User, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
-    { name: 'Collections', href: '#' },
-    { name: 'Operations', href: '#' },
-    { name: 'Archive', href: '#' },
+    { name: 'Collections', href: '/collections' },
+    { name: 'Operations', href: '/operations' },
+    { name: 'Archive', href: '/archive' },
   ];
 
   return (
@@ -19,21 +21,33 @@ export default function Navbar() {
         className="fixed top-0 w-full z-50 glass px-4 sm:px-8 py-4 md:py-6 flex items-center justify-between border-b border-white/5"
       >
         <div className="flex items-center gap-4 sm:gap-12">
-          <h1 className="text-xl sm:text-2xl font-black tracking-tighter text-white font-display">
-            IGNITE<span className="text-cyan-glow animate-pulse">.</span>
-          </h1>
+          <Link to="/" className="flex items-center">
+            <h1 className="text-xl sm:text-2xl font-black tracking-tighter text-white font-display">
+              IGNITE<span className="text-cyan-glow animate-pulse">.</span>
+            </h1>
+          </Link>
           <div className="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:text-cyan-glow transition-all">
+              <Link key={link.name} to={link.href} className="hover:text-cyan-glow transition-all">
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
         
         <div className="flex items-center gap-2 sm:gap-6 text-white text-gray-400">
-          <button className="p-2 sm:p-3 hover:text-cyan-glow transition-colors"><Search size={20} /></button>
-          <button className="hidden sm:block p-2 sm:p-3 hover:text-magenta-glow transition-colors"><User size={20} /></button>
+          <button 
+            onClick={() => navigate('/search')}
+            className="p-2 sm:p-3 hover:text-cyan-glow transition-colors"
+          >
+            <Search size={20} />
+          </button>
+          <button 
+            onClick={() => navigate('/account')}
+            className="hidden sm:block p-2 sm:p-3 hover:text-magenta-glow transition-colors"
+          >
+            <User size={20} />
+          </button>
           <button className="relative p-2 sm:p-3 hover:text-cyan-glow transition-colors">
             <ShoppingBag size={20} />
             <span className="absolute top-1 right-1 bg-magenta-glow text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-bold text-white">2</span>
@@ -58,9 +72,11 @@ export default function Navbar() {
           >
             <div className="flex flex-col h-full p-8">
               <div className="flex justify-between items-center mb-16">
-                <h1 className="text-2xl font-black tracking-tighter text-white font-display">
-                  IGNITE<span className="text-cyan-glow">.</span>
-                </h1>
+                <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                  <h1 className="text-2xl font-black tracking-tighter text-white font-display">
+                    IGNITE<span className="text-cyan-glow">.</span>
+                  </h1>
+                </Link>
                 <button 
                   onClick={() => setIsMenuOpen(false)}
                   className="p-2 text-white hover:text-magenta-glow transition-colors"
@@ -71,17 +87,48 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-8">
                 {navLinks.map((link, i) => (
-                  <motion.a
+                  <motion.div
                     key={link.name}
-                    href={link.href}
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: i * 0.1 }}
-                    className="text-4xl font-black text-white hover:text-cyan-glow transition-colors uppercase tracking-tighter font-display"
                   >
-                    {link.name}
-                  </motion.a>
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-4xl font-black text-white hover:text-cyan-glow transition-colors uppercase tracking-tighter font-display"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
+                {/* Mobile Search and Account links */}
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: navLinks.length * 0.1 }}
+                >
+                  <Link
+                    to="/search"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-4xl font-black text-white hover:text-magenta-glow transition-colors uppercase tracking-tighter font-display"
+                  >
+                    Search
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: (navLinks.length + 1) * 0.1 }}
+                >
+                  <Link
+                    to="/account"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-4xl font-black text-white hover:text-magenta-glow transition-colors uppercase tracking-tighter font-display"
+                  >
+                    Account
+                  </Link>
+                </motion.div>
               </div>
 
               <div className="mt-auto pt-12 border-t border-white/10 flex flex-col gap-6">

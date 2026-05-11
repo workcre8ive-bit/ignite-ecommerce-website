@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-[90vh] md:h-screen w-full flex flex-col md:flex-row overflow-hidden bg-midnight">
       {/* Left Side: Content */}
@@ -25,12 +28,18 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="group relative px-8 py-4 sm:px-10 sm:py-5 btn-gradient text-midnight font-black uppercase tracking-widest rounded-none overflow-hidden transition-all hover:scale-105 active:scale-95 animate-pulse-slow">
+            <button 
+              onClick={() => navigate('/collections')}
+              className="group relative px-8 py-4 sm:px-10 sm:py-5 btn-gradient text-midnight font-black uppercase tracking-widest rounded-none overflow-hidden transition-all hover:scale-105 active:scale-95 animate-pulse-slow"
+            >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Explore Drop <ArrowRight size={20} />
               </span>
             </button>
-            <button className="px-8 py-4 sm:px-10 sm:py-5 border border-white/20 text-white font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+            <button 
+              onClick={() => navigate('/archive')}
+              className="px-8 py-4 sm:px-10 sm:py-5 border border-white/20 text-white font-bold uppercase tracking-widest hover:bg-white/5 transition-all"
+            >
               Lookbook
             </button>
           </div>
