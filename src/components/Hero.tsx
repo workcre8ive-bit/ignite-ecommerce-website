@@ -15,7 +15,7 @@ export default function Hero() {
           <span className="text-magenta-glow font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4 block">
             System Online // New Drop
           </span>
-          <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] font-display mb-8">
+          <h2 className="text-6xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] font-display mb-8">
             SHIFT <br />
             <span className="text-gradient">REALITY</span>
           </h2>

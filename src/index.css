@@ -75,15 +75,22 @@
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 250px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
   gap: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 280px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 300px);
   }
 }
 

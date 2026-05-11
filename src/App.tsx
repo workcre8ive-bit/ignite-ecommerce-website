@@ -101,7 +101,7 @@ export default function App() {
             className="max-w-4xl relative z-10"
           >
             <span className="text-cyan-glow font-bold tracking-[0.4em] uppercase text-[10px] sm:text-xs mb-6 sm:mb-8 block">Project // Vanguard</span>
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-black text-white font-display mb-10 sm:mb-12 leading-none uppercase">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white font-display mb-10 sm:mb-12 leading-none uppercase">
               RECODE THE <br />
               <span className="text-gradient">CITYSCAPE</span>
             </h2>

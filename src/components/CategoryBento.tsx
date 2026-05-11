@@ -12,7 +12,7 @@ const categories: Category[] = [
     id: 2,
     title: "Hardware",
     image: "https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&q=80&w=800",
-    size: "col-span-2 row-span-1",
+    size: "col-span-2 md:col-span-1 lg:col-span-2 row-span-1",
   },
   {
     id: 3,
