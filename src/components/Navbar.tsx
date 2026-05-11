@@ -8,6 +8,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'Collections', href: '/collections' },
     { name: 'Operations', href: '/operations' },
     { name: 'Archive', href: '/archive' },

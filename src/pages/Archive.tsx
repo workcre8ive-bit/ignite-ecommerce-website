@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import BackButton from '../components/BackButton';
 
 const archiveItems = [
   { id: 1, title: "001 // The Catalyst", date: "Q1 2024", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800" },
@@ -10,6 +11,7 @@ const archiveItems = [
 export default function Archive() {
   return (
     <div className="pt-32 pb-24 px-6 sm:px-12 md:px-24 min-h-screen">
+      <BackButton />
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}

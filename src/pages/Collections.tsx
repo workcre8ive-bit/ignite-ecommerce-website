@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import ProductCard from '../components/ProductCard';
 import { Product } from '../types';
+import BackButton from '../components/BackButton';
 
 const collectionProducts: Product[] = [
   { id: 101, name: "Vanguard Shell v.1", price: "$550.00", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800", tag: "Hard-shell" },
@@ -13,6 +14,7 @@ const collectionProducts: Product[] = [
 export default function Collections() {
   return (
     <div className="pt-32 pb-24 px-6 sm:px-12 md:px-24 min-h-screen">
+      <BackButton />
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Truck, ShieldCheck, MapPin, Radio } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 export default function Operations() {
   const missions = [
@@ -11,6 +12,7 @@ export default function Operations() {
 
   return (
     <div className="pt-32 pb-24 px-6 sm:px-12 md:px-24 min-h-screen">
+      <BackButton />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

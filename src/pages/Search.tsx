@@ -3,6 +3,7 @@ import { Search as SearchIcon, X } from 'lucide-react';
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { Product } from '../types';
+import BackButton from '../components/BackButton';
 
 const allProducts: Product[] = [
   { id: 1, name: "Apex Tactical Shell", price: "$450.00", image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=800", tag: "Hard-shell" },
@@ -23,6 +24,9 @@ export default function Search() {
 
   return (
     <div className="pt-32 pb-24 px-6 sm:px-12 md:px-24 min-h-screen">
+      <div className="max-w-4xl mx-auto">
+        <BackButton />
+      </div>
       <div className="max-w-4xl mx-auto mb-20">
          <div className="relative group">
             <SearchIcon className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-cyan-glow transition-colors" size={32} />

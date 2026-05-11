@@ -11,6 +11,7 @@ import Operations from './pages/Operations';
 import Archive from './pages/Archive';
 import Account from './pages/Account';
 import SearchPage from './pages/Search';
+import SettingsPage from './pages/Settings';
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/archive" element={<Archive />} />
             <Route path="/account" element={<Account />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
 
