@@ -1,8 +1,25 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Shield, Bell, Eye, Database, Smartphone, Globe } from 'lucide-react';
+import { useState } from 'react';
 import BackButton from '../components/BackButton';
 
 export default function Settings() {
+  const [toggles, setToggles] = useState<Record<string, boolean>>({
+    "Two-Factor Extraction": true,
+    "Neural Encryption Keys": true,
+    "Authorized Devices": false,
+    "Drop Intel Notifications": true,
+    "System Status Alerts": true,
+    "Operative Comms": false,
+    "Dark Mode System": true,
+    "High Contrast Scanning": false,
+    "Motion Vector Filters": true
+  });
+
+  const handleToggle = (item: string) => {
+    setToggles(prev => ({ ...prev, [item]: !prev[item] }));
+  };
+
   const sections = [
     {
       title: "Security // Protocol",
@@ -54,9 +71,16 @@ export default function Settings() {
               <div className="space-y-4">
                 {section.items.map((item) => (
                   <div key={item} className="flex items-center justify-between py-4 border-b border-white/5 last:border-0 grow">
-                    <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">{item}</span>
-                    <button className="w-12 h-6 bg-white/10 relative rounded-full p-1 transition-colors hover:bg-white/20">
-                      <div className="w-4 h-4 bg-gray-500 rounded-full"></div>
+                    <span className={`${toggles[item] ? 'text-white' : 'text-gray-500'} font-bold uppercase tracking-widest text-xs transition-colors`}>{item}</span>
+                    <button 
+                      onClick={() => handleToggle(item)}
+                      className={`w-12 h-6 relative rounded-full p-1 transition-all duration-300 ${toggles[item] ? 'bg-cyan-glow/20 border border-cyan-glow/50' : 'bg-white/5 border border-white/10'}`}
+                    >
+                      <motion.div 
+                        animate={{ x: toggles[item] ? 24 : 0 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                        className={`w-4 h-4 rounded-full ${toggles[item] ? 'bg-cyan-glow shadow-[0_0_10px_#00f3ff]' : 'bg-gray-600'}`}
+                      />
                     </button>
                   </div>
                 ))}

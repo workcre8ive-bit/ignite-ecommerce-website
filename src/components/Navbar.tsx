@@ -1,4 +1,4 @@
-import { ShoppingBag, Search, User, Menu, X } from 'lucide-react';
+import { ShoppingBag, Search, User, Menu, X, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -42,6 +42,12 @@ export default function Navbar() {
             className="p-2 sm:p-3 hover:text-cyan-glow transition-colors"
           >
             <Search size={20} />
+          </button>
+          <button 
+            onClick={() => navigate('/account', { state: { activeTab: 'messages' } })}
+            className="hidden sm:block p-2 sm:p-3 hover:text-magenta-glow transition-colors"
+          >
+            <MessageSquare size={20} />
           </button>
           <button 
             onClick={() => navigate('/account')}
@@ -128,6 +134,20 @@ export default function Navbar() {
                     className="text-4xl font-black text-white hover:text-magenta-glow transition-colors uppercase tracking-tighter font-display"
                   >
                     Account
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: (navLinks.length + 2) * 0.1 }}
+                >
+                  <Link
+                    to="/account"
+                    state={{ activeTab: 'messages' }}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-4xl font-black text-white hover:text-cyan-glow transition-colors uppercase tracking-tighter font-display"
+                  >
+                    Messages
                   </Link>
                 </motion.div>
               </div>

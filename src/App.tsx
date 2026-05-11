@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import QuickBuy from './components/QuickBuy';
+import FloatingMessage from './components/FloatingMessage';
 import Footer from './components/Footer';
 import { motion } from 'motion/react';
 
@@ -52,6 +53,7 @@ export default function App() {
 
         <Footer />
         <QuickBuy />
+        <FloatingMessage />
       </div>
     </Router>
   );

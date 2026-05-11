@@ -1,14 +1,23 @@
 import { motion } from 'motion/react';
 import { User, MessageSquare, Package, Settings, LogOut, Mail, Calendar, MapPin, Activity, ShieldCheck } from 'lucide-react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 
 type Tab = 'profile' | 'messages' | 'orders';
 
 export default function Account() {
-  const [activeTab, setActiveTab] = useState<Tab>('profile');
   const navigate = useNavigate();
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState<Tab>(
+    (location.state as { activeTab?: Tab })?.activeTab || 'profile'
+  );
+
+  useEffect(() => {
+    if ((location.state as { activeTab?: Tab })?.activeTab) {
+      setActiveTab((location.state as { activeTab?: Tab }).activeTab!);
+    }
+  }, [location.state]);
 
   const messages = [
     { id: 1, sender: "System", text: "Welcome to IGNITE. Operation Vanguard is now live.", time: "2h ago", unread: true },
